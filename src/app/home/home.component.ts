@@ -22,12 +22,17 @@ export class HomeComponent implements OnInit {
       console.log("First response received:", data);
     });
 
-    // Second API call (to test cache )
+    // Second API call (should be cached)
     setTimeout(() => {
       console.log("Fetching data the second time...");
       this.apiService.getData('https://api.escuelajs.co/api/v1/users').subscribe((data) => {
         console.log("Second response received (should be cached):", data);
       });
     }, 3000); 
+  }
+
+  // function to convert images to WebP format
+  getOptimizedImage(url: string): string {
+    return url.replace('.jpg', '.webp').replace('.png', '.webp');
   }
 }

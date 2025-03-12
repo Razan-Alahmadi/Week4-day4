@@ -1,10 +1,13 @@
 
 <h1>Welcome to Angular Performance Optimization</h1>
 
-<!-- Lazy load images without lib -->
+<!-- Lazy load optimized images -->
 <div class="product-container">
-    <div *ngFor="let product of products" class="product-card">
-      <img [src]="product.avatar" [alt]="" class="product-image" />
-      <h3>{{ product.name }}</h3>
-    </div>
+  <div *ngFor="let product of products" class="product-card">
+    <picture>
+      <source [srcset]="getOptimizedImage(product.avatar)" type="image/webp">
+]      <img [src]="product.avatar" [alt]="product.name" class="product-image" loading="lazy" />
+    </picture>
+    <h3>{{ product.name }}</h3>
   </div>
+</div>
