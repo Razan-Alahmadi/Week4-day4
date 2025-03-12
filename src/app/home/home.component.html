@@ -1,0 +1,10 @@
+
+<h1>Welcome to Angular Performance Optimization</h1>
+
+<!-- Lazy load images without lib -->
+<div class="product-container">
+    <div *ngFor="let product of products" class="product-card">
+      <img [src]="product.avatar" [alt]="" class="product-image" />
+      <h3>{{ product.name }}</h3>
+    </div>
+  </div>
